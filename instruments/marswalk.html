@@ -34,9 +34,9 @@
     </div>
   </header>
 
-  <main class="max-width px-4 pb-8">
+  <main class="max-width px-4 pb-8 mars-dashboard">
     <!-- Page Header -->
-    <section class="mb-6">
+    <section class="mb-6 mars-title">
       <h1 class="font-display text-3xl md:text-4xl font-bold uppercase tracking-wider mb-2" style="color: var(--text-primary);">
         06 — MARSWALK PLANNER
       </h1>
@@ -44,7 +44,7 @@
     </section>
 
     <!-- Map Interface -->
-    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] overflow-hidden">
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] overflow-hidden mars-map-panel">
       <div class="relative h-[400px] md:h-[500px] w-full">
         <div id="map-canvas" style="width:100%;height:100%;background: var(--bg-primary);"></div>
         <div class="absolute inset-0 flex items-center justify-center">
@@ -62,7 +62,7 @@
     </section>
 
     <!-- Waypoint Table -->
-    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4 mars-waypoints">
       <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">WAYPOINT TABLE</h3>
       <div class="overflow-x-auto">
         <table class="w-full text-[var(--text-secondary)] text-sm">
@@ -103,7 +103,7 @@
     </section>
 
     <!-- Mission Parameters -->
-    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4 mars-params">
       <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">MISSION PARAMETERS</h3>
       <div class="grid grid-cols-2 gap-4">
         <div>
@@ -142,7 +142,7 @@
     </section>
 
     <!-- Safety Assessment -->
-    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4 mars-safety">
       <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">SAFETY ASSESSMENT</h3>
       <div class="grid grid-cols-2 gap-4">
         <div>
@@ -160,7 +160,7 @@
     </section>
 
     <!-- Environmental Factors -->
-    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4 mars-environment">
       <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">ENVIRONMENTAL FACTORS</h3>
       <div class="grid grid-cols-2 gap-3">
         <div>
@@ -199,5 +199,6 @@
   <script type="module" src="../js/instruments/marswalk.js"></script>
 </body>
 </html>
+
 
 

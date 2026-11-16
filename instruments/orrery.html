@@ -30,7 +30,7 @@
     <aside class="planet-rail" aria-label="Select a planet"><div class="rail-label">SOLAR SYSTEM <span>8 BODIES</span></div><div id="planet-list"></div><div class="rail-note">Select a body to inspect its current orbital state.</div></aside>
     <section class="space-stage" aria-label="Interactive 3D solar system">
       <canvas id="orrery-canvas" aria-label="3D animated solar system; drag to rotate and scroll to zoom"></canvas>
-      <div class="stage-vignette"></div><div class="stage-coordinates"><span>HELIOCENTRIC FRAME / ECLIPTIC J2000</span><span id="frame-date">SIMULATION INITIALIZING</span></div>
+      <div class="stage-vignette"></div><div class="stage-coordinates"><span>HELIOCENTRIC FRAME / ECLIPTIC J2000</span><span id="frame-date">SIMULATION INITIALIZING</span></div><div class="axis-legend" aria-label="Coordinate axes"><span><i class="axis-x">X</i> ECLIPTIC</span><span><i class="axis-y">Y</i> NORTH</span><span><i class="axis-z">Z</i> ECLIPTIC</span><small>AU · SUN-CENTERED</small></div>
       <div class="stage-hint"><span class="live-dot"></span> DRAG TO ROTATE <i>·</i> SCROLL TO ZOOM <i>·</i> SELECT A BODY TO FOCUS</div>
       <div class="stage-tools"><button id="focus-button" title="Focus selected planet">◎ <span>FOLLOW BODY</span></button><button id="orbits-button" class="active" title="Show or hide orbital paths">◉ <span>ORBITS</span></button><button id="labels-button" class="active" title="Show or hide labels">Aa <span>LABELS</span></button><button id="camera-reset" title="Reset camera">⌖ <span>RESET VIEW</span></button></div>
       <div class="timeline"><button id="play-bottom" aria-label="Pause simulation">Ⅱ</button><div class="timeline-date"><small>SIMULATED DATE</small><strong id="sim-date">—</strong></div><input id="date-scrubber" type="range" min="-3650" max="3650" value="0" aria-label="Simulation date offset"><span class="timeline-scale">−10 YR <span>TODAY</span> +10 YR</span></div>
@@ -45,3 +45,4 @@
   </main>
   <script type="module" src="../js/instruments/orrery.js"></script>
 </body></html>
+
