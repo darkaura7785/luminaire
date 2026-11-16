@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05 — TONIGHT'S SKY | WOBlISK INDUSTRIES — LUMINAIRE</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Persistent Header -->
+  <header class="border-b border-[var(--border)] bg-[var(--bg-secondary)] backdrop-blur-sm">
+    <div class="max-width px-2 py-1 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-xl font-bold tracking-wider uppercase" style="color: var(--accent-primary);">WOBlISK</span>
+        <span class="text-base" style="color: var(--text-secondary);">INDUSTRIES</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-3">
+        <a href="index.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">Home</a>
+        <a href="orrery.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">00 — Orrery</a>
+        <a href="marswalk.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">06 — Marswalk Planner</a>
+        <a href="anomaly.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">01 — Anomaly Hunter</a>
+        <a href="mission.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">02 — Mission Survival</a>
+        <a href="landing.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">03 — Landing Sites</a>
+        <a href="discovery.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">04 — Discovery Engine</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-mono px-2 py-1 rounded bg-[var(--bg-card)]" style="color: var(--accent-primary);">05</span>
+        <span class="text-sm" style="color: var(--text-secondary);">TONIGHT'S SKY</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-width px-4 pb-8">
+    <!-- Header -->
+    <section class="mb-6">
+      <h1 class="font-display text-3xl md:text-4xl font-bold uppercase tracking-wider mb-2" style="color: var(--text-primary);">
+        05 — TONIGHT'S SKY
+      </h1>
+      <p class="text-[var(--text-secondary)] text-sm">Naked-eye sky planner</p>
+    </section>
+
+    <!-- City Selector -->
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+      <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-4" style="color: var(--accent-primary);">CITY SELECTOR</h3>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Select City</label>
+          <select id="city-selector" class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-2 px-3 text-[var(--text-primary)]">
+            <option>-- Select City --</option>
+            <option>London, UK</option>
+            <option>New York, USA</option>
+            <option>Tokyo, Japan</option>
+            <option>Sydney, Australia</option>
+            <option>Mauna Kea, Hawaii</option>
+            <option>Cape Canaveral, USA</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Latitude</label>
+          <input type="number" id="lat-input" placeholder="°" class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-2 px-3 text-[var(--text-primary)]">
+        </div>
+        <div>
+          <label class="block text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Longitude</label>
+          <input type="number" id="lon-input" placeholder="°" class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-2 px-3 text-[var(--text-primary)]">
+        </div>
+      </div>
+      <div class="mt-3">
+        <label class="block text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">
+          <input type="checkbox" id="use-location" class="rounded bg-[var(--bg-primary)] border border-[var(--border)] py-1 ms-2">
+          📍 Use my location
+        </label>
+      </div>
+    </section>
+
+    <!-- Date & Time Controls -->
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+      <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-4" style="color: var(--accent-primary);">DATE & TIME</h3>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">View</label>
+          <div class="grid grid-cols-3 gap-1">
+            <button class="flex-1 py-2 rounded bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-secondary)] uppercase tracking-wider" data-view="tonight">Tonight</button>
+            <button class="flex-1 py-2 rounded bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-secondary)] uppercase tracking-wider" data-view="tomorrow">Tomorrow</button>
+            <button class="flex-1 py-2 rounded bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-secondary)] uppercase tracking-wider" data-view="week">+7 days</button>
+          </div>
+        </div>
+        <div>
+          <label class="block text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Time</label>
+          <input type="time" id="time-selector" class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-2 px-3 text-[var(--text-primary)]">
+        </div>
+      </div>
+      <div class="mt-3">
+        <button id="play-sky" class="w-full py-2 rounded bg-[var(--accent-primary)] text-[var(--bg-primary)] font-mono text-sm uppercase tracking-wider">▶ Play the night — Now</button>
+      </div>
+    </section>
+
+    <!-- Sky Visualization -->
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4" style="min-height: 300px;">
+      <div class="relative h-full">
+        <div class="absolute inset-0 rounded-md overflow-hidden" style="background: var(--bg-primary);">
+          <canvas id="sky-canvas"></canvas>
+        </div>
+        <div class="absolute bottom-4 left-4 right-4 flex justify-between">
+          <div>
+            <span class="text-[var(--text-secondary)] uppercase tracking-wider text-xxs block mb-1">South</span>
+            <span id="sky-south" class="font-mono">180°</span>
+          </div>
+          <span class="text-[var(--text-secondary)] uppercase tracking-wider text-xs">East</span>
+          <span class="text-[var(--text-secondary)] uppercase tracking-wider text-xs">West</span>
+        </div>
+        <div class="absolute top-4 right-4">
+          <button id="theme-toggle" class="p-2 rounded bg-[var(--bg-primary)] text-[var(--text-secondary)]">Light</button>
+        </div>
+      </div>
+      <p class="text-[var(--text-secondary)] text-xs uppercase tracking-wider mt-3">Darkness indicator: night sky visualization</p>
+    </section>
+
+    <!-- Observation Logs -->
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+      <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">OBSERVATION LOGS</h3>
+      <div id="observation-logs" class="space-y-2 text-[var(--text-secondary)]">
+        <div class="text-xs uppercase tracking-wider">Through the night:</div>
+      </div>
+    </section>
+
+    <!-- Sky Filters -->
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+      <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">SKY FILTERS</h3>
+      <div class="grid grid-cols-3 gap-3">
+        <div>
+          <label class="block text-[var(--text-secondary)] uppercase tracking-wider text-xs mb-1">
+            <input type="checkbox" checked class="rounded bg-[var(--bg-primary)] border border-[var(--border)] py-1 ms-2"> Bright stars
+          </label>
+        </div>
+        <div>
+          <label class="block text-[var(--text-secondary)] uppercase tracking-wider text-xs mb-1">
+            <input type="checkbox" checked class="rounded bg-[var(--bg-primary)] border border-[var(--border)] py-1 ms-2"> Ecliptic
+          </label>
+        </div>
+        <div>
+          <label class="block text-[var(--text-secondary)] uppercase tracking-wider text-xs mb-1">
+            <input type="checkbox" checked class="rounded bg-[var(--bg-primary)] border border-[var(--border)] py-1 ms-2"> Height grid
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hindi/English Toggle -->
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+      <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">LANGUAGE</h3>
+      <div class="grid grid-cols-2 gap-3">
+        <label class="flex items-center gap-2 px-3 py-2 rounded bg-[var(--bg-primary)] border border-[var(--border)]">
+          <input type="radio" name="language" value="english" class="rounded bg-[var(--bg-primary)] border border-[var(--border)] py-1 ms-2" checked>
+          English
+        </label>
+        <label class="flex items-center gap-2 px-3 py-2 rounded bg-[var(--bg-primary)] border border-[var(--border)]">
+          <input type="radio" name="language" value="hindi" class="rounded bg-[var(--bg-primary)] border border-[var(--border)] py-1 ms-2">
+          हिन्दी
+        </label>
+      </div>
+      <p class="text-[var(--text-secondary)] text-sm uppercase tracking-wider">
+        Key labels: South→दक्षिण, East→पूर्व, West→पश्चिम, Altitude→ऊँचाई, Azimuth→पक्ष
+      </p>
+    </section>
+  </main>
+
+  <footer class="border-t border-[var(--border)] bg-[var(--bg-secondary)] text-sm">
+    <div class="max-width px-2 py-3">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div>
+          <span class="font-bold uppercase tracking-wider" style="color: var(--accent-primary);">WOBlISK INDUSTRIES</span>
+          <span class="text-[var(--text-secondary)]">LUMINAIRE</span>
+        </div>
+        <span class="text-[var(--text-secondary)]">Scientific Computing & Planetary Data Analysis</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sky Canvas Script -->
+  <script type="module">
+    // Sky visualization using Three.js
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+
+    // JPL Keplerian elements for planets
+    const planetData = {
+      mercury: { a: 0.387, e: 0.206, name: 'Mercury', color: '#B5B5B5' },
+      venus: { a: 0.723, e: 0.007, name: 'Venus', color: '#E6C75B' },
+      earth: { a: 1.000, e: 0.017, name: 'Earth', color: '#7ECED0' },
+      mars: { a: 1.524, e: 0.093, name: 'Mars', color: '#D94F4F' },
+      jupiter: { a: 5.203, e: 0.049, name: 'Jupiter', color: '#D4A574' },
+      saturn: { a: 9.537, e: 0.056, name: 'Saturn', color: '#F4D03F' },
+      uranus: { a: 19.191, e: 0.046, name: 'Uranus', color: '#82A596' },
+      neptune: { a: 30.070, e: 0.010, name: 'Neptune', color: '#2980B9' }
+    };
+
+    // Observer location
+    let observerLon = -122.0; // Default: Mauna Kea approx
+    let observerLat = 19.82;
+    let observerDate = new Date();
+
+    // Initialize sky visualization
+    function initSky() {
+      const canvas = document.getElementById('sky-canvas');
+      const canvasWrapper = canvas.parentElement;
+
+      function resizeCanvas() {
+        canvas.width = canvasWrapper.clientWidth;
+        canvas.height = canvasWrapper.clientHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setSize(canvas.width, canvas.height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      const scene = new THREE.Scene();
+
+      // Camera - orthogonal projection for sky view
+      const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 100);
+      camera.position.z = 1;
+
+      // Ecliptic plane
+      const eclipticGeo = new THREE.PlaneGeometry(2, 2);
+      const eclipticMat = new THREE.MeshBasicMaterial({
+        color: 0x54D6E8,
+        opacity: 0.3,
+        transparent: true,
+        side: THREE.DoubleSide
+      });
+      const ecliptic = new THREE.Mesh(eclipticGeo, eclipticMat);
+      ecliptic.rotation.x = Math.sin(23.44 * Math.PI / 180); // obliquity of ecliptic
+      scene.add(ecliptic);
+
+      // Stars (fixed background)
+      const starCount = 200;
+      const starGeo = new THREE.BufferGeometry();
+      const starCoords = new Float32Array(starCount * 3);
+      const starSizes = new Float32Array(starCount);
+
+      for (let i = 0; i < starCount; i++) {
+        const radius = 1 + Math.random() * 4;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(2 * Math.random() - 1);
+        starCoords[i * 3] = radius * Math.cos(theta) * Math.sin(phi);
+        starCoords[i * 3 + 1] = radius * Math.sin(theta) * Math.sin(phi);
+        starCoords[i * 3 + 2] = radius * Math.cos(phi);
+        starSizes[i] = 0.5 + Math.random() * 1.5;
+      }
+
+      starGeo.setAttribute('position', new THREE.BufferAttribute(starCoords, 3));
+      const starMat = new THREE.PointsMaterial({
+        color: 0xffffff,
+        size: 0.8,
+        sizeAttenuation: true
+      });
+      const stars = new THREE.Points(starGeo, starMat);
+      scene.add(stars);
+
+      // Planets positions for current date
+      function updatePlanets() {
+        // Clear existing planets
+        scene.traverse(obj => {
+          if (obj.isMesh && obj !== stars && obj !== ecliptic) {
+            obj.removeFromParent();
+          }
+        });
+
+        const daysSinceJ2000 = (observerDate - new Date(2000, 0, 12.7582)) / 86400;
+
+        for (const [key, data] of Object.entries(planetData)) {
+          // Simplified: mean anomaly calculation
+          const n = 2 * Math.PI / 365.25; // mean motion per day
+          const M = n * daysSinceJ2000; // Mean anomaly
+
+          // Solve Kepler's equation
+          let E = M;
+          for (let i = 0; i < 10; i++) {
+            const f = E - data.e * Math.sin(E) - M;
+            const fp = 1 - data.e * Math.cos(E);
+            E -= f / fp;
+            if (Math.abs(f) < 1e-6) break;
+          }
+
+          // True anomaly
+          const nu = 2 * Math.atan2(Math.sqrt(1 + data.e) * Math.sin(E / 2), Math.sqrt(1 - data.e) * Math.cos(E / 2));
+
+          // Distance
+          const r = data.a * (1 - data.e * data.e) / (1 + data.e * Math.cos(nu));
+
+          // Heliocentric coordinates
+          const x = r * Math.cos(nu);
+          const y = r * Math.sin(nu);
+
+          // Apply inclination (simplified - all in ecliptic plane for now)
+          const px = x * 10; // Scale for visibility
+          const py = y * 10;
+          const pz = 0;
+
+          const sphereGeo = new THREE.SphereGeometry(0.3, 16, 16);
+          const sphereMat = new THREE.MeshStandardMaterial({ color: data.color });
+          const sphere = new THREE.Mesh(sphereGeo, sphereMat);
+          sphere.position.set(px, py, pz);
+          sphere.userData = { key, name: data.name };
+          scene.add(sphere);
+        }
+      }
+
+      updatePlanets();
+
+      // Render loop
+      let animId;
+      function animate() {
+        animId = requestAnimationFrame(animate);
+        // Rotate the starfield slowly
+        stars.rotation.y += 0.001;
+        ecliptic.rotation.y += 0.0005;
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      // City selector
+      const citySelector = document.getElementById('city-selector');
+      citySelector.addEventListener('change', (e) => {
+        const city = e.target.value;
+        if (city === 'London, UK') {
+          observerLon = -0.1278;
+          observerLat = 51.5074;
+        } else if (city === 'New York, USA') {
+          observerLon = -74.006;
+          observerLat = 40.7128;
+        } else if (city === 'Tokyo, Japan') {
+          observerLon = 139.6917;
+          observerLat = 35.6895;
+        } else if (city === 'Sydney, Australia') {
+          observerLon = 151.2093;
+          observerLat = -33.8688;
+        } else if (city === 'Mauna Kea, Hawaii') {
+          observerLon = -155.4787;
+          observerLat = 19.8209;
+        } else if (city === 'Cape Canaveral, USA') {
+          observerLon = -80.6025;
+          observerLat = 28.4043;
+        }
+        updatePlanets();
+      });
+
+      // Time selector
+      const timeSelector = document.getElementById('time-selector');
+      timeSelector.addEventListener('change', (e) => {
+        const [hours, minutes] = e.target.value.split(':').map(Number);
+        observerDate = new Date();
+        observerDate.setHours(hours, minutes, 0, 0);
+        updatePlanets();
+      });
+
+      // Theme toggle
+      const themeToggle = document.getElementById('theme-toggle');
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initSky);
+  </script>
+</body>
+</html>
