@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04 — DISCOVERY ENGINE | WOBlISK INDUSTRIES — LUMINAIRE</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/instruments.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Persistent Header -->
+  <header class="border-b border-[var(--border)] bg-[var(--bg-secondary)] backdrop-blur-sm">
+    <div class="max-width px-2 py-1 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-xl font-bold tracking-wider uppercase" style="color: var(--accent-primary);">WOBlISK</span>
+        <span class="text-base" style="color: var(--text-secondary);">INDUSTRIES</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-3">
+        <a href="../index.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">Home</a>
+        <a href="orrery.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">00 — Orrery</a>
+        <a href="sky.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">05 — Tonight's Sky</a>
+        <a href="marswalk.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">06 — Marswalk Planner</a>
+        <a href="anomaly.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">01 — Anomaly Hunter</a>
+        <a href="mission.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">02 — Mission Survival</a>
+        <a href="landing.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">03 — Landing Sites</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-mono px-2 py-1 rounded bg-[var(--bg-card)]" style="color: var(--accent-primary);">04</span>
+        <span class="text-sm" style="color: var(--text-secondary);">DISCOVERY ENGINE</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-width px-4 pb-8">
+    <!-- Page Header -->
+    <section class="mb-6">
+      <h1 class="font-display text-3xl md:text-4xl font-bold uppercase tracking-wider mb-2" style="color: var(--text-primary);">
+        04 — DISCOVERY ENGINE
+      </h1>
+      <p class="text-[var(--text-secondary)] text-sm">Planetary scientific data analysis</p>
+    </section>
+
+    <!-- CSV Upload -->
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+      <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-4" style="color: var(--accent-primary);">CSV UPLOAD & PREVIEW</h3>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Upload CSV</label>
+          <input type="file" accept=".csv" class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-3 px-3 text-[var(--text-primary)]">
+          <p class="text-[var(--text-secondary)] text-xs mt-2">Max 10,000 rows · Mixed column types</p>
+        </div>
+        <div>
+          <label class="block text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Sample Data</label>
+          <button class="w-full py-2 rounded bg-[var(--bg-primary)] text-[var(--bg-primary)] text-[var(--text-primary)] font-mono text-sm uppercase tracking-wider">
+            Load Sample CSV
+          </button>
+        </div>
+      </div>
+      <p class="text-[var(--text-secondary)] text-sm mt-3">Built-in CSV with 50 rows × 8 columns (mixed types)</p>
+    </section>
+
+    <!-- Statistical Summaries -->
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+      <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">STATISTICAL SUMMARIES</h3>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <div class="text-[var(--text-secondary)] uppercase tracking-wider text-xs mb-1">Mean</div>
+          <div class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-3 px-3 text-[var(--text-primary)]">42.3</div>
+        </div>
+        <div>
+          <div class="text-[var(--text-secondary)] uppercase tracking-wider text-xs mb-1">Median</div>
+          <div class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-3 px-3 text-[var(--text-primary)]">41.8</div>
+        </div>
+        <div>
+          <div class="text-[var(--text-secondary)] uppercase tracking-wider text-xs mb-1">Standard deviation</div>
+          <div class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-3 px-3 text-[var(--text-primary)]">12.7</div>
+        </div>
+        <div>
+          <div class="text-[var(--text-secondary)] uppercase tracking-wider text-xs mb-1">Variance</div>
+          <div class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-3 px-3 text-[var(--text-primary)]">161.3</div>
+        </div>
+        <div>
+          <div class="text-[var(--text-secondary)] uppercase tracking-wider text-xs mb-1">IQR</div>
+          <div class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-3 px-3 text-[var(--text-primary)]">18.5</div>
+        </div>
+        <div>
+          <div class="text-[var(--text-secondary)] uppercase tracking-wider text-xs mb-1">Range</div>
+          <div class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-3 px-3 text-[var(--text-primary)]">68.2</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Z-Score & Outlier Detection -->
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+      <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">Z-SCORE & OUTLIER DETECTION</h3>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <div class="text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Threshold</div>
+          <div class="flex items-center gap-2">
+            <input type="range" min="1" max="5" step="0.5" value="2" class="w-full">
+            <span class="text-[var(--text-secondary)]">|z| > <strong>2</strong></span>
+          </div>
+        </div>
+        <div>
+          <div class="text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Outlier count</div>
+          <div class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-3 px-3 text-[var(--text-primary)]">3</div>
+        </div>
+      </div>
+      <div class="mt-3">
+        <div class="text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Anomaly table</div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-[var(--text-secondary)] text-xs">
+            <thead>
+              <tr class="border-b border-[var(--border)]">
+                <th class="font-mono px-2 py-1">Row</th>
+                <th class="font-mono px-2 py-1">Value</th>
+                <th class="font-mono px-2 py-1">z-score</th>
+                <th class="font-mono px-2 py-1">Detected</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[var(--border)]">
+                <td class="font-mono px-2 py-1">14</td>
+                <td class="font-mono px-2 py-1">98.7</td>
+                <td class="font-mono px-2 py-1">3.42</td>
+                <td class="font-mono px-2 py-1">✓</td>
+              </tr>
+              <tr>
+                <td class="font-mono px-2 py-1">27</td>
+                <td class="font-mono px-2 py-1">5.2</td>
+                <td class="font-mono px-2 py-1">2.11</td>
+                <td class="font-mono px-2 py-1">✓</td>
+              </tr>
+              <tr class="border-b border-[var(--border)]">
+                <td class="font-mono px-2 py-1">44</td>
+                <td class="font-mono px-2 py-1">12.1</td>
+                <td class="font-mono px-2 py-1">2.87</td>
+                <td class="font-mono px-2 py-1">✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Correlation Analysis -->
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+      <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">CORRELATION ANALYSIS</h3>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <div class="text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Pearson r</div>
+          <div class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-3 px-3 text-[var(--text-primary)]">0.73</div>
+          <div class="text-[var(--text-secondary)] text-xs uppercase tracking-wider">Strong correlation</div>
+        </div>
+        <div>
+          <div class="text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Pairs analyzed</div>
+          <div class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-3 px-3 text-[var(--text-primary)]">28</div>
+        </div>
+      </div>
+      <div class="mt-3">
+        <div class="text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Cross-instrument comparison</div>
+        <div class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-3 px-3 text-[var(--text-primary)]">
+          Observations agree within 5% tolerance
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Charts -->
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+      <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">DISTRIBUTION PLOTS</h3>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <div class="text-[var(--text-secondary)] uppercase tracking-wider text-xs mb-2">Histogram: Column A</div>
+          <div class="h-[150px] bg-[var(--bg-primary)] rounded overflow-hidden relative">
+            <div class="absolute bottom-0 right-0 bg-[var(--accent-primary)] w-full h-20"></div>
+          </div>
+        </div>
+        <div>
+          <div class="text-[var(--text-secondary)] uppercase tracking-wider text-xs mb-2">Box plot: Column B</div>
+          <div class="h-[150px] bg-[var(--bg-primary)] rounded overflow-hidden relative">
+            <div class="absolute bottom-0 right-0 bg-[var(--warning)] h-20"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Cleaning -->
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4">
+      <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">DATA CLEANING</h3>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Missing values</label>
+          <div class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-2 px-3">
+            <select class="w-full bg-[var(--bg-card)] border border-[var(--border)] rounded py-1 px-2">
+              <option>Remove rows</option>
+              <option selected>Median impute</option>
+              <option>Mean impute</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-[var(--text-secondary)] uppercase tracking-wider text-sm mb-1">Outliers</label>
+          <div class="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded py-2 px-3">
+            <select class="w-full bg-[var(--bg-card)] border border-[var(--border)] rounded py-1 px-2">
+              <option>Winsorize</option>
+              <option>Clip at 3σ</option>
+              <option>Keep</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button class="w-full py-2 rounded bg-[var(--accent-primary)] text-[var(--bg-primary)] font-mono text-sm uppercase tracking-wider mt-3">
+        Apply Cleaning
+      </button>
+    </section>
+
+    <!-- Export -->
+    <section class="mb-6 rounded border border-[var(--border)] bg-[var(--bg-card)] p-4" id="export-section" style="display: none;">
+      <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">EXPORT ANALYSIS</h3>
+      <div class="space-y-3">
+        <button class="w-full py-2 rounded bg-[var(--accent-primary)] text-[var(--bg-primary)] font-mono text-sm uppercase tracking-wider">
+          Download Report (PDF)
+        </button>
+        <button class="w-full py-2 rounded bg-[var(--bg-secondary)] text-[var(--text-secondary)] font-mono text-sm uppercase tracking-wider">
+          Export Cleaned Data (CSV)
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[var(--border)] bg-[var(--bg-secondary)] text-sm">
+    <div class="max-width px-2 py-3">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div>
+          <span class="font-bold uppercase tracking-wider" style="color: var(--accent-primary);">WOBlISK INDUSTRIES</span>
+          <span class="text-[var(--text-secondary)]">LUMINAIRE</span>
+        </div>
+        <span class="text-[var(--text-secondary)]">Scientific Computing & Planetary Data Analysis</span>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="../js/instruments/discovery.js"></script>
+</body>
+</html>
+
+

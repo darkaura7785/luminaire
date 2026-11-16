@@ -1,0 +1,86 @@
+/* WOBlISK INDUSTRIES — LUMINAIRE Global Styles */
+:root {
+  --bg-primary: #080B10;
+  --bg-secondary: #0D121A;
+  --bg-card: #111923;
+  --border: #2A3848;
+  --accent-primary: #54D6E8;
+  --accent-secondary: #8A9AAA;
+  --warning: #E7AD54;
+  --error: #E16C73;
+  --success: #65C99A;
+  --text-primary: #E8EDF2;
+  --text-secondary: #8998A7;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-inter: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-inter);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Focus styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Links */
+a {
+  color: var(--accent-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--accent-primary);
+}
+
+/* Background */
+html {
+  height: 100%;
+}
+
+/* Container max width */
+.max-width {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Utility: padding */
+.py-1 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-2 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-3 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.px-1 { padding-left: 1rem; padding-right: 1rem; }
+.px-2 { padding-left: 1.5rem; padding-right: 1.5rem; }
+
+/* Utility: margin */
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
