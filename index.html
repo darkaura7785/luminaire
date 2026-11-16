@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOBlISK INDUSTRIES — LUMINAIRE</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Global Header -->
+  <header class="border-b border-[var(--border)] bg-[var(--bg-secondary)] backdrop-blur-sm">
+    <div class="max-width px-2 py-1 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-xl font-bold tracking-wider uppercase" style="color: var(--accent-primary);">WOBlISK</span>
+        <span class="text-base" style="color: var(--text-secondary);">INDUSTRIES</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">LUMINAIRE</a>
+        <a href="index.html#instruments" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">INSTRUMENTS</a>
+        <a href="about.html" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">ABOUT</a>
+      </nav>
+      <div id="instrument-pills" class="flex items-center gap-2">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-width px-2 pt-6">
+    <!-- Hero Section -->
+    <section class="mb-8">
+      <div class="text-center">
+        <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 uppercase" style="color: var(--text-primary);">
+          EXPLORING THE MECHANICS OF OUR UNIVERSE
+        </h1>
+        <p class="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
+          An interactive scientific computing environment for planetary exploration, orbital mechanics, image analysis, mission simulation, and astronomical data interpretation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Solar System Visualization -->
+    <section id="solar-system" class="mb-8 rounded border border-[var(--border)] overflow-hidden">
+      <div class="relative h-[400px] md:h-[500px] w-full">
+        <canvas id="orbiter-canvas"></canvas>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <span class="text-[var(--text-secondary)] text-sm">Open the 3D Orrery →</span>
+        </div>
+      </div>
+      <div class="p-4 pt-0">
+        <div class="grid grid-cols-2 gap-2 text-xs md:text-sm font-mono" style="color: var(--accent-secondary);">
+          <div>Mercury</div>
+          <div>Venus</div>
+          <div>Earth</div>
+          <div>Mars</div>
+          <div>Jupiter</div>
+          <div>Saturn</div>
+          <div>Uranus</div>
+          <div>Neptune</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instrument Directory -->
+    <section id="instruments" class="mb-8">
+      <h2 class="font-display text-2xl font-semibold uppercase tracking-wider mb-4" style="color: var(--accent-primary);">SCIENTIFIC INSTRUMENTS</h2>
+      <div id="instrument-grid" class="grid grid-cols-2 gap-3 md:grid-cols-4">
+        <!-- Injected by JS -->
+      </div>
+    </section>
+
+    <!-- System Status -->
+    <section class="mb-8 p-4 rounded border border-[var(--border)] bg-[var(--bg-card)]">
+      <h3 class="font-display text-xl font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-primary);">SYSTEM STATUS</h3>
+      <div class="grid grid-cols-3 gap-4">
+        <div>
+          <div class="text-[var(--accent-primary)] text-lg font-mono">01</div>
+          <div class="text-[var(--text-secondary)]">Anomaly Hunter</div>
+          <div class="text-xs">Operational</div>
+        </div>
+        <div>
+          <div class="text-[var(--accent-primary)] text-lg font-mono">00</div>
+          <div class="text-[var(--text-secondary)]">Kepler Orrery</div>
+          <div class="text-xs">Operational</div>
+        </div>
+        <div>
+          <div class="text-[var(--accent-primary)] text-lg font-mono">04</div>
+          <div class="text-[var(--text-secondary)]">Discovery Engine</div>
+          <div class="text-xs">Operational</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-[var(--border)] bg-[var(--bg-secondary)] text-sm">
+    <div class="max-width px-2 py-3">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div>
+          <span class="font-bold uppercase tracking-wider" style="color: var(--accent-primary);">WOBlISK INDUSTRIES</span>
+          <span class="text-[var(--text-secondary)]">LUMINAIRE</span>
+        </div>
+        <span class="text-[var(--text-secondary)]">Scientific Computing & Planetary Data Analysis</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js Script -->
+  <script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+    import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+    import { RGBELoader } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/RGBELoader.js';
+
+    // Orbital data from JPL/SD (semi-major axis in AU, period in days)
+    const planetData = {
+      mercury: { a: 0.387, e: 0.206, i: 7.00, name: 'Mercury', color: '#B5B5B5' },
+      venus: { a: 0.723, e: 0.007, i: 3.40, name: 'Venus', color: '#E6C75B' },
+      earth: { a: 1.000, e: 0.017, i: 0.00, name: 'Earth', color: '#7ECED0' },
+      mars: { a: 1.524, e: 0.093, i: 1.85, name: 'Mars', color: '#D94F4F' },
+      jupiter: { a: 5.203, e: 0.049, i: 1.30, name: 'Jupiter', color: '#D4A574' },
+      saturn: { a: 9.537, e: 0.056, i: 2.49, name: 'Saturn', color: '#F4D03F' },
+      uranus: { a: 19.191, e: 0.046, i: 0.77, name: 'Uranus', color: '#82A596' },
+      neptune: { a: 30.070, e: 0.010, i: 1.77, name: 'Neptune', color: '#2980B9' }
+    };
+
+    // Simulation state
+    let simulationRunning = false;
+    let simulationSpeed = 1;
+    let elapsedTime = 0;
+
+    // Initialize Three.js
+    function initOrbiter() {
+      const canvas = document.getElementById('orbiter-canvas');
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      const scene = new THREE.Scene();
+
+      // Camera
+      const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);
+      camera.position.set(25, 20, 30);
+
+      // Controls
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+
+      // Light
+      const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+      scene.add(ambientLight);
+
+      const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      dirLight.position.set(10, 10, 10);
+      scene.add(dirLight);
+
+      // Sun
+      const sunRadius = 1.5;
+      const sunGeo = new THREE.SphereGeometry(sunRadius, 32, 32);
+      const sunMat = new THREE.MeshBasicMaterial({ color: '#F9C80E' });
+      const sun = new THREE.Mesh(sunGeo, sunMat);
+      scene.add(sun);
+
+      // Add Sun label
+      const sunLabel = document.createElement('div');
+      sunLabel.style.position = 'absolute';
+      sunLabel.style.width = '40px';
+      sunLabel.style.height = '20px';
+      sunLabel.style.background = 'rgba(0,0,0,0.5)';
+      sunLabel.style.color = 'white';
+      sunLabel.style.padding = '2px';
+      sunLabel.style.fontSize = '10px';
+      sunLabel.style.pointerEvents = 'none';
+      sunLabel.textContent = 'Sun';
+      document.querySelector('#solar-system .relative').appendChild(sunLabel);
+
+      // Planets
+      const planets = {};
+      const planetOrbits = {};
+
+      for (const [key, data] of Object.entries(planetData)) {
+        // Planet sphere
+        const radius = Math.max(0.3, 0.8 / data.a);
+        const geo = new THREE.SphereGeometry(radius, 16, 16);
+        const mat = new THREE.MeshStandardMaterial({ color: data.color });
+        const mesh = new THREE.Mesh(geo, mat);
+        mesh.userData = { key, a: data.a, e: data.e, i: data.i };
+        scene.add(mesh);
+        planets[key] = mesh;
+
+        // Orbital path
+        const pathPts = 64;
+        const pathGeo = new THREE.BufferGeometry();
+        const pathPtsArray = new Float32Array(pathPts * 3);
+        for (let j = 0; j < pathPts; j++) {
+          const theta = (j / pathPts) * Math.PI * 2;
+          const a = data.a * (1 - data.e * data.e) / (1 + data.e * Math.cos(theta));
+          const x = a * Math.cos(theta);
+          const y = a * Math.sin(theta) * Math.cos(data.i * Math.PI / 180);
+          pathPtsArray[j * 3] = x;
+          pathPtsArray[j * 3 + 1] = y;
+          pathPtsArray[j * 3 + 2] = 0;
+        }
+        pathGeo.setAttribute('position', new THREE.BufferAttribute(pathPtsArray, 3));
+        const pathMat = new THREE.LineBasicMaterial({ color: '#54D6E8', opacity: 0.4 });
+        const path = new THREE.Line(pathGeo, pathMat);
+        scene.add(path);
+        planetOrbits[key] = path;
+      }
+
+      // Render loop
+      let animationId;
+      function animate() {
+        animationId = requestAnimationFrame(animate);
+
+        const dt = 0.016 * simulationSpeed;
+        elapsedTime += dt;
+
+        // Update planets based on Keplerian motion
+        const n = 2 * Math.PI; // normalized mean motion
+        for (const [key, mesh] of Object.entries(planets)) {
+          const data = planetData[key];
+          const meanMotion = n / data.a ** 1.5; // T^2 ∝ a^3 → n ∝ a^(-3/2)
+          const M = meanMotion * elapsedTime; // Mean anomaly
+
+          // Solve Kepler's equation M = E - e sin E via Newton-Raphson
+          let E = M; // Initial guess
+          for (let iter = 0; iter < 10; iter++) {
+            const f = E - data.e * Math.sin(E) - M;
+            const fp = 1 - data.e * Math.cos(E);
+            const delta = -f / fp;
+            E += delta;
+            if (Math.abs(delta) < 1e-6) break;
+          }
+
+          // True anomaly
+          const nu = 2 * Math.atan2(Math.sqrt(1 + data.e) * Math.sin(E / 2), Math.sqrt(1 - data.e) * Math.cos(E / 2));
+
+          // Distance
+          const r = data.a * (1 - data.e * data.e) / (1 + data.e * Math.cos(nu));
+
+          // Position in orbital plane
+          const x = r * Math.cos(nu);
+          const y = r * Math.sin(nu);
+
+          // Apply inclination
+          const xRot = x;
+          const yRot = y * Math.cos(data.i * Math.PI / 180) - 0 * Math.sin(data.i * Math.PI / 180);
+          const zRot = y * Math.sin(data.i * Math.PI / 180) - 0 * Math.cos(data.i * Math.PI / 180);
+
+          mesh.position.set(xRot, yRot, zRot);
+
+          // Update orbit path (static, positions set at init)
+        }
+
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      // Handle resize
+      window.addEventListener('resize', () => {
+        const newWidth = canvas.clientWidth;
+        const newHeight = canvas.clientHeight;
+        renderer.setSize(newWidth, newHeight);
+        camera.aspect = newWidth / newHeight;
+        camera.updateProjectionMatrix();
+      });
+    }
+
+    // Initialize on DOM load
+    document.addEventListener('DOMContentLoaded', initOrbiter);
+  </script>
+</body>
+</html>
