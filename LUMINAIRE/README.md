@@ -166,7 +166,8 @@ All synthetic datasets are clearly labeled. No claims are made regarding NASA af
 
 ## Credits
 
-- Reference website: https://shanshantanusingh113-max.github.io/kepler-orrery/
+
+
 - Three.js — 3D JavaScript library
 - Lucide — icon set
 - JPL Solar System Dynamics — orbital elements
